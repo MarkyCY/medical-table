@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicina</title>
+</head>
+<body>
+    <h1>Hello World!</h1>
+    <form action="{% url 'create_task' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="title">
+        <textarea name="content" id=""></textarea>
+        <button>Save</button>
+    </form>
+    {% for doc in speci %}
+        <div>
+            <h4>{{ doc.name }}</h4>
+            <p>{{ doc.description }}</p>
+        </div>
+    
+    {% empty %}
+        <p>No Specializations</p>
+
+    {% endfor %}
+</body>
+</html>
