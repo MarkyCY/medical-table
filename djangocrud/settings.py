@@ -28,6 +28,12 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 
+# Login access control
+LOGIN_URL = '/login/'
+
+# Login redirect success
+LOGIN_REDIRECT_URL = '/'
+
 # Application definition
 
 INSTALLED_APPS = [
