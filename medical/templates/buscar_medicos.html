@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Búsqueda de Médicos</title>
+</head>
+<body>
+    <h1>Buscar Médicos</h1>
+    <form method="get">
+        <label for="specializations">Especialidad:</label>
+        <select name="specialization" id="specialization">
+            <option value="">--Seleccione una especialización--</option>
+            {% for specialization in specializations %}
+            <option value="{{ specialization.id }}">{{ specialization.name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Buscar</button>
+    </form>
+
+    <h2>Resultados</h2>
+    <ul>
+        {% for doctor in doctors %}
+        <li>{{ doctor.name }} - {{ doctor.specializations.name }} 
+            <a href="{% url 'reservar_cita' doctor.id %}">Reservar Cita</a>
+        </li>
+        {% empty %}
+        <li>No se encontraron médicos</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

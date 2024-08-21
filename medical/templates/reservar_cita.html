@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reservar Cita</title>
+</head>
+<body>
+    <h1>Reservar Cita con {{ doctor.name }}</h1>
+
+    {% if error_message %}
+        <p style="color:red;">{{ error_message }}</p>
+    {% endif %}
+
+    <h2>Horarios Disponibles:</h2>
+    <ul>
+        {% for schedule in available_schedules %}
+            <li>{{ schedule }}</li>
+        {% endfor %}
+    </ul>
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="fecha_hora">Seleccione la Fecha y Hora:</label>
+        <input type="datetime-local" id="fecha_hora" name="fecha_hora">
+        <button type="submit">Reservar</button>
+    </form>
+</body>
+</html>

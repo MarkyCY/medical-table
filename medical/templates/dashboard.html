@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Panel de Control</title>
+</head>
+<body>
+    <h2>Bienvenido, {{ request.session.patient_name }}</h2>
+    <p>Este es tu panel de control.</p>
+    <a href="{% url 'logout' %}">Cerrar Sesión</a>
+</body>
+</html>

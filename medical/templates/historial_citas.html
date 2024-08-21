@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Historial de Citas</title>
+</head>
+<body>
+    <h1>Historial de Citas</h1>
+    <ul>
+        {% for appointment in appointments %}
+        <li>{{ appointment.date_time }} con {{ appointment.doctor.name }} - Estado: {{ appointment.status }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
